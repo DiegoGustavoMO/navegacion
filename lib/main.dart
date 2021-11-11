@@ -1,9 +1,10 @@
 //siempre hay que importar la libreria de material para flutter
 import 'package:flutter/material.dart';
+import 'package:navegacion/pages/pagina2.dart';
 
 //la clase main principal que ejecuta la aplicacion al inciar es
 //en este casso MyApp debe tener la primera letra en mayuscula
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 //con este main estoy indicando que ejecute la aplicacion principal
 
 //con la ayuda del los pluggins usamos statlessW o StatefulW
@@ -53,8 +54,21 @@ class _InicioState extends State<Inicio> {
         appBar: AppBar(
           title: const Text("Mi App"),
         ),
-        body: const Center(
-          child: Text("Contenido"),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text("Home"),
+              ElevatedButton(
+                onPressed: () {
+                  //llamado de la pagina mediante pulso de boton
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Pagina2()));
+                },
+                child: const Text("Ir a la otra pagina"),
+              )
+            ],
+          ),
         ));
   }
 }
